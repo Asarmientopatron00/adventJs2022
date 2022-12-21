@@ -5,15 +5,8 @@
 function getGiftsToRefill(a1, a2, a3) {
   const newArray = [a1, a2, a3];
   const uniques = newArray.reduce((result, data) => {
-    const n = [];
-    data.map((gift) => {
-      if(!n.includes(gift)){
-        n.push(gift);
-      }
-    })
-    if(n.length>0){
-      result.push(n)
-    }
+    const n = new Set(data)
+    result.push(...n.values())
     return result;
   },[]);
   const flatered = uniques.flat();
