@@ -58,11 +58,26 @@ function printTable(gifts) {
   },{max1: headers.game.length, max2: headers.quantity.length});
   const maxS = res.max1+res.max2+7;
   let string = chars.beg.repeat(maxS)+'\n';
-  string+=chars.latL+headers.game+chars.fill.repeat(res.max1-headers.game.length)+chars.med;
-  string+=headers.quantity+chars.fill.repeat(res.max2-headers.quantity.length)+chars.latR+'\n';
-  string+=chars.latL+chars.div.repeat(res.max1)+chars.med+chars.div.repeat(res.max2)+chars.latR+'\n';
+  string+=chars.latL;
+  string+=headers.game;
+  string+=chars.fill.repeat(res.max1-headers.game.length);
+  string+=chars.med;
+  string+=headers.quantity;
+  string+=chars.fill.repeat(res.max2-headers.quantity.length);
+  string+=chars.latR+'\n';
+  string+=chars.latL;
+  string+=chars.div.repeat(res.max1);
+  string+=chars.med;
+  string+=chars.div.repeat(res.max2);
+  string+=chars.latR+'\n';
   for(let x of gifts){
-    string+=chars.latL+x.name+chars.fill.repeat(res.max1-x.name.length)+chars.med+x.quantity+chars.fill.repeat(res.max2-x.quantity.toString().length)+chars.latR+'\n';
+    string+=chars.latL;
+    string+=x.name;
+    string+=chars.fill.repeat(res.max1-x.name.length);
+    string+=chars.med;
+    string+=x.quantity;
+    string+=chars.fill.repeat(res.max2-x.quantity.toString().length);
+    string+=chars.latR+'\n';
   }
   string+=chars.end.repeat(maxS);
   return string;
