@@ -9,9 +9,8 @@ function getGiftsToRefill(a1, a2, a3) {
     result.push(...n.values())
     return result;
   },[]);
-  const flatered = uniques.flat();
-  const res = flatered.reduce((result, data) => {
-    if(flatered.filter((uniq) => uniq === data).length === 1){
+  const res = uniques.reduce((result, data) => {
+    if(uniques.filter((uniq) => uniq === data).length === 1){
       result.push(data);
     }
     return result;
